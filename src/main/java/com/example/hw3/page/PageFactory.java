@@ -1,8 +1,6 @@
-package com.example.hw3.page;
+/*package com.example.hw3.page;
 
 import com.example.hw3.model.enums.PageType;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,4 +19,4 @@ public class PageFactory {
     public Page getPage(PageType type) {
         return pageMap.get(type);
     }
-}
+}*/

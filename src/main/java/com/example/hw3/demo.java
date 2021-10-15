@@ -1,7 +1,6 @@
 package com.example.hw3;
 
 import com.example.hw3.page.MenuPage;
-import com.example.hw3.page.PageFactory;
 import com.example.hw3.model.Product;
 import com.example.hw3.model.categories.Categories;
 import com.example.hw3.model.categories.MainCategory;
@@ -18,7 +17,6 @@ import java.util.Scanner;
 @RequiredArgsConstructor
 public class demo implements CommandLineRunner {
     private final Scanner scanner;
-    private final PageFactory pageFactory;
     private final MenuPage menuPage;
     private final SearchPage searchPage;
     @Override
@@ -42,20 +40,20 @@ public class demo implements CommandLineRunner {
         m.addCategory(s1);
         MainCategory m1=new MainCategory("S");
         m1.addCategory(s2);
-        Categories c=new Categories();
-        c.addCategory(m);
-        c.addCategory(m1);
+        Categories categories=new Categories();
+        categories.addCategory(m);
+        categories.addCategory(m1);
 
-        System.out.println("Please select page "+ Arrays.toString(PageType.values()));
+
+        System.out.print("Please select page  "+ Arrays.toString(PageType.values())+" : ");
         String pageType= scanner.nextLine();
 
 
         if(pageType.equals("MENU")){
-            menuPage.run(c);
+            menuPage.run(categories);
         }else{
-            searchPage.run(c);
+            searchPage.run(categories);
         }
-
 
 
     }

@@ -1,6 +1,7 @@
 package com.example.hw3.page;
 
 
+import com.example.hw3.demo;
 import com.example.hw3.model.Product;
 import com.example.hw3.model.cart.Cart;
 import com.example.hw3.model.cart.CartItem;
@@ -26,7 +27,8 @@ public class MenuPage {
     private final CheckoutPage checkoutPage;
     private final PaymentPage paymentPage;
     private Product product;
-    private final PageFactory pageFactory;// final olmalı ama final olunca cycle oluşuyor
+    private final Cart cart;
+    //private final PageFactory pageFactory;// final olmalı ama final olunca cycle oluşuyor
     private Bill bill;
 
     /*@Override
@@ -35,7 +37,6 @@ public class MenuPage {
     }*/
 
     public void run(Categories categories) {
-        Cart cart=new Cart();
 
         List<MainCategory> mainCategoryList=categories.getMainCategoryList();
         System.out.println("---MAIN MENU---");
@@ -99,11 +100,10 @@ public class MenuPage {
                 .build();
         cart.addItem(cartItem);
 
-        System.out.println("Please select page [MENU,CHECKOUT]");
+        System.out.print("Please select page [FIRST PAGE,CHECKOUT]: ");
 
         String option=scanner.nextLine();
-        PageType type= PageType.valueOf("MENU");
-        if(option.equals("MENU")){
+        if(option.equals("FIRST PAGE")){
             this.run(categories);
         }
         else if(option.equals("CHECKOUT")){
@@ -111,11 +111,11 @@ public class MenuPage {
 
         }
 
-        System.out.println("Please select page [MENU,PAYMENT]");
+        System.out.print("Please select page [FIRST PAGE,PAYMENT]: ");
 
         String option1=scanner.nextLine();
-        if(option1.equals("MENU")){
-           this.run(categories);
+        if(option1.equals("FIRST PAGE")){
+            this.run(categories);
         }
         else if(option1.equals("PAYMENT")){
             paymentPage.run(bill);

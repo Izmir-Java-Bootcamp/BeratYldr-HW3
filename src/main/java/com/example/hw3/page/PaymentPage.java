@@ -18,7 +18,7 @@ public class PaymentPage{
     private final Scanner scanner;
     private final PaymentFactory paymentFactory;
     public void run(Bill bill) {
-        System.out.println("SELECT PAYMENT METHOD:  "+ Arrays.toString(PayType.values()));
+        System.out.print("SELECT PAYMENT METHOD "+ Arrays.toString(PayType.values())+" : ");
         PayType payType=PayType.valueOf(scanner.nextLine());
         Payment payment =paymentFactory.getType(payType);
         payment.pay(bill);
