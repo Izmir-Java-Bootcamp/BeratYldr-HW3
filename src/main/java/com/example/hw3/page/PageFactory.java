@@ -1,6 +1,8 @@
 /*package com.example.hw3.page;
 
 import com.example.hw3.model.enums.PageType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +18,9 @@ public class PageFactory {
                 .collect(Collectors.toMap(Page::getType, menuSelect ->menuSelect));
     }
 
+    @Bean
     public Page getPage(PageType type) {
         return pageMap.get(type);
     }
-}*/
+}
+*/

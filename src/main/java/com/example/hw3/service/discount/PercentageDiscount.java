@@ -1,6 +1,7 @@
 package com.example.hw3.service.discount;
 
 import com.example.hw3.model.cart.Cart;
+import com.example.hw3.model.cart.CartItem;
 import com.example.hw3.properties.DiscountProperties;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +15,8 @@ public class PercentageDiscount implements Discount {
     private final DiscountProperties discountProperties;
 
     @Override
-    public double applyDiscount(Cart cart) {
-        double price=cart.getTotalPrice();
+    public double applyDiscount(CartItem cartItem) {
+        double price=cartItem.getPrice();
         double appliedDiscount = price *(discountProperties.getDiscountPercentage()/100);
         System.out.println(price - appliedDiscount+"   "+discountProperties.getDiscountPercentage());
         return price - appliedDiscount;

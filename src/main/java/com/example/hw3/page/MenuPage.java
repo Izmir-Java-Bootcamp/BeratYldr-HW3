@@ -21,7 +21,7 @@ import java.util.Scanner;
 
 @Component
 @RequiredArgsConstructor
-public class MenuPage {
+public class MenuPage{
 
     private final Scanner scanner;
     private final CheckoutPage checkoutPage;
@@ -29,12 +29,8 @@ public class MenuPage {
     private Product product;
     private final Cart cart;
     //private final PageFactory pageFactory;// final olmalı ama final olunca cycle oluşuyor
-    private Bill bill;
 
-    /*@Override
-    public PageType getType() {
-        return PageType.MENU;
-    }*/
+
 
     public void run(Categories categories) {
 
@@ -105,21 +101,14 @@ public class MenuPage {
         String option=scanner.nextLine();
         if(option.equals("FIRST PAGE")){
             this.run(categories);
+            return;
         }
         else if(option.equals("CHECKOUT")){
-            bill =checkoutPage.run(cart);
+            checkoutPage.run(cart,categories);
 
         }
 
-        System.out.print("Please select page [FIRST PAGE,PAYMENT]: ");
 
-        String option1=scanner.nextLine();
-        if(option1.equals("FIRST PAGE")){
-            this.run(categories);
-        }
-        else if(option1.equals("PAYMENT")){
-            paymentPage.run(bill);
-        }
 
 
 

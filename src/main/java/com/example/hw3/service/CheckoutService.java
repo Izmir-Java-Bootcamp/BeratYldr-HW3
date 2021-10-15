@@ -35,6 +35,7 @@ public class CheckoutService {
                 .mapToDouble(d -> d)
                 .sum();
 
+
         if(totalSum==0){
             totalSum= cart.getTotalPrice();
         }

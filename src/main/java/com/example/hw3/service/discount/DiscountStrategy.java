@@ -1,6 +1,7 @@
 package com.example.hw3.service.discount;
 
 import com.example.hw3.model.cart.Cart;
+import com.example.hw3.model.cart.CartItem;
 import com.example.hw3.properties.DiscountProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,11 @@ public class DiscountStrategy {
                 .filter(discount1 -> discount1.isAcceptable(cart))
                 .findFirst();
 
-        discount.ifPresent(d->price=d.applyDiscount(cart));
+        for (CartItem carItem:cart.getCartItems()
+             ) {
+            discount.ifPresent(d->price=d.applyDiscount(carItem));
+        }
+
         return price;
     }
 }
